@@ -23,7 +23,7 @@ type PixKey struct {
 	Key       string   `json:"key" valid:"notnull"`
 	Kind      string   `json:"kind" valid:"notnull"`
 	Status    string   `json:"status" valid:"notnull"`
-	AccountID string   `json:"account_id" valid:"notnull"`
+	AccountID string   `gorm:"column:account_id; type:uuid; not null" valid:"-"`
 }
 
 func (pixKey *PixKey) isValid() error {
